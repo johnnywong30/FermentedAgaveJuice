@@ -15,6 +15,7 @@
                                                                                      ( ( __))                                                          
 
  */
+import java.util.Date;
 
 public class Event{
     // INSTANCE VARIABLES
@@ -23,11 +24,12 @@ public class Event{
     
     // CONSTRUCTOR
     public Task(String task, String time){
-	
+	_description = task;
+	_time = time;
     }
     // METHODS
     public void notify(){
-
+	
     }
     
     // HELPER METHODS

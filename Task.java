@@ -16,6 +16,8 @@
 
  */
 
+import java.util.Date;
+
 public class Task{
     // INSTANCE VARIABLES
     private String _description;
@@ -23,7 +25,8 @@ public class Task{
     
     // CONSTRUCTOR
     public Task(String task, String time){
-	
+	_description = task;
+	_time = time;
     }
     // METHODS
     public void notify(){

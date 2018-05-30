@@ -7,7 +7,13 @@ pd 1
 Command Line-Based Schedule
 
 ===== TO DO LIST =====
-
+1. Create Driver, Day, Event and Task files
+2. Start with files Event and Task
+3. Move onto Day and make sure it is in accordance with the previous files
+4. Then code for the Driver and make sure it works with Day, Event, and Task
+5. Debugg and Robustify Code
+6. Undetermined stretch
+   Ideas: Apply code to Processing to make it graphic
 
 ============================================================================================================
 

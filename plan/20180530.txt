@@ -1,0 +1,49 @@
+2018-05-30
+Plan
+
+Preliminary Steps BEFORE Coding
+
+	    []Establish reliable method of communication
+	    []Obtain schedules of each member
+	    []Determine when all members are available
+	    []Agree on the Components
+	    []Figure out how the classes will interact with eachother
+	    []Create satisfactory UML diagram
+	    []Create a schedule with deadlines for individuals and group work
+
+Components:
+
+	[]Driver.java
+	[]Weekly Schedule Planner
+	       []Day.java
+	       []Event.java
+	       []Task.java
+	[]Habit Tracker
+	      []Habit.java
+	      []Tracker.java
+	[]History Storage and Access
+		[]History.java
+
+Order: Task.java
+       Event.java
+       Day.java
+       Driver.java in accordance with Weekly Schedule Planner
+       Debugg and robustify
+       
+       Habit.java
+       Tracker.java
+       Driver.java in accordance with HabitTracker
+       Debugg and robustify
+       
+       History.java
+       Adapt Weekly Schedule Planner and Habit Tracker
+       Driver.java in accordance with History Storage and Access
+       Debugg and robustify
+
+       Make sure the display is nice
+       Make sure the User Interface is simple and easy to use
+       Set loose project and test it out on unsuspecting humans
+
+       Once all tasks above are completed move onto the stretch
+
+Stretch: To be determined

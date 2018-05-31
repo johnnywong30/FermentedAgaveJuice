@@ -12,8 +12,10 @@ Command Line-Based Schedule
 3. Move onto Day and make sure it is in accordance with the previous files
 4. Then code for the Driver and make sure it works with Day, Event, and Task
 5. Debugg and Robustify Code
-6. Undetermined stretch
-   Ideas: Apply code to Processing to make it graphic
+6. Begin to develop the Habit Tracker
+7. Create habit and tracker files
+8. Code for habit, then Tracker
+9. 
 
 ============================================================================================================
 

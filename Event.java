@@ -20,16 +20,33 @@ import java.util.Date;
 public class Event{
     // INSTANCE VARIABLES
     private String _description;
-    private String _time;
+    private Time _time;
     
     // CONSTRUCTOR
-    public Task(String task, String time){
+    public Event(String task, String time){
 	_description = task;
 	_time = time;
     }
     // METHODS
-    public void notify(){
-	
+    
+    public String getDescription(){
+	return _description;
+    }
+    
+    public Time getTime(){
+	return _time;
+    }
+
+    public String setDescription(String newDescription){
+	String oldDescription = _description;
+	_description = newDescription;
+	return oldDescription;
+    }
+
+    public Time setTime(Time newTime){
+	Time oldTime = _time;
+	_time = newTime;
+	return oldTime;
     }
     
     // HELPER METHODS

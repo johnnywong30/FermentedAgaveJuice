@@ -1,4 +1,4 @@
-/*
+ve/*
   FermentedAgaveJuice -- Johnny Wong, Sophia Xia, Clarence Cheng
   Schedule Planner
   APCS2 pd1
@@ -18,10 +18,18 @@
 
 import java.util.Date;
 
+/*
+METHODS
++ String getDescription()
++ Time getTime()
++ String setDescription(String newDescription)
++ Time setTime(Time newTime)
+ */
+
 public class Task{
     // INSTANCE VARIABLES
     private String _description;
-    private String _time;
+    private Time _time;
     
     // CONSTRUCTOR
     public Task(String task, String time){
@@ -29,9 +37,27 @@ public class Task{
 	_time = time;
     }
     // METHODS
-    public void notify(){
-
+    
+    public String getDescription(){
+	return _description;
     }
+    
+    public Time getTime(){
+	return _time;
+    }
+
+    public String setDescription(String newDescription){
+	String oldDescription = _description;
+	_description = newDescription;
+	return oldDescription;
+    }
+
+    public Time setTime(Time newTime){
+	Time oldTime = _time;
+	_time = newTime;
+	return oldTime;
+    }
+    
     
     // HELPER METHODS
 

@@ -8,8 +8,8 @@ Preliminary Steps BEFORE Coding ===============================================
 	    []Determine when all members are available
 	    [X]Agree on the Components
 	    [X]Figure out how the classes will interact with eachother
-	    []Create satisfactory UML diagram
-	    []Create a schedule with deadlines for individuals and group work
+	    [X]Create satisfactory UML diagram
+	    [X]Create a schedule with deadlines for individuals and group work
 
 Components ====================================================================
 

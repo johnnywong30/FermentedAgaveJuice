@@ -17,6 +17,7 @@
  */
 
 import java.util.Date;
+import java.org.joda.time.LocalTime;
 
 public class Task{
     // INSTANCE VARIABLES
@@ -52,5 +53,12 @@ public class Task{
     
     
     // HELPER METHODS
+
+    //User input in format "hh:mm"
+    private Time setTimeH(String newTime){
+	//Error Handling in case User's input is invalid
+	//Turn a String Object into a Time Object
+	LocalTime t = LocalTime.parse(newTime);
+    }
 
 }

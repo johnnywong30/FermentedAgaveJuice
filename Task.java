@@ -17,17 +17,17 @@
  */
 
 import java.util.Date;
-import java.org.joda.time.LocalTime;
+import java.time.LocalTime;
 
 public class Task{
     // INSTANCE VARIABLES
     private String _description;
-    private Time _time;
+    private LocalTime _time;
     
     // CONSTRUCTOR
     public Task(String task, String time){
 	_description = task;
-	_time = time;
+	_time = strToTime(time);
     }
     // METHODS
     
@@ -35,7 +35,7 @@ public class Task{
 	return _description;
     }
     
-    public Time getTime(){
+    public LocalTime getTime(){
 	return _time;
     }
 
@@ -45,8 +45,8 @@ public class Task{
 	return oldDescription;
     }
 
-    public Time setTime(Time newTime){
-	Time oldTime = _time;
+    public LocalTime setTime(LocalTime newTime){
+	LocalTime oldTime = _time;
 	_time = newTime;
 	return oldTime;
     }
@@ -54,11 +54,13 @@ public class Task{
     
     // HELPER METHODS
 
+    //Converts a String to Local Time
     //User input in format "hh:mm"
-    private Time setTimeH(String newTime){
+    private LocalTime strToTime(String newTime){
 	//Error Handling in case User's input is invalid
 	//Turn a String Object into a Time Object
 	LocalTime t = LocalTime.parse(newTime);
+	return t;
     }
 
 }

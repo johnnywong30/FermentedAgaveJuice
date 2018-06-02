@@ -7,15 +7,18 @@ pd 1
 Command Line-Based Schedule
 
 ===== TO DO LIST =====
-1. Create Driver, Day, Event and Task files
-2. Start with files Event and Task
-3. Move onto Day and make sure it is in accordance with the previous files
-4. Then code for the Driver and make sure it works with Day, Event, and Task
-5. Debugg and Robustify Code
-6. Begin to develop the Habit Tracker
-7. Create habit and tracker files
-8. Code for habit, then Tracker
-9. 
+
+      1. Task.java and Event.java
+      2. Bring Schedule.java and Driver.java in accordance to Task and Event
+      3. Test, Debugg and robustify
+      4. Habit.java
+      5. Bring Schedule.java and Driver.java in accordance to Habit
+      6. Test, Debugg and robustify
+      7. History.java
+      8. Bring Schedule.java and Driver.java in accordance to History
+      9. Friend.java
+      10. Bring Schedule.java and Driver.java in accordance to Friend
+      11. Test, Debugg and robustify
 
 ============================================================================================================
 
@@ -69,3 +72,36 @@ LESSONS LEARNED
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+05-29-2018---------------------------------------------------------------------
+Sophia Xia: Typed up the Proposal and created a UML Diagram for initial smaller version of the Schedule Planner
+
+
+05-30-2018---------------------------------------------------------------------
+Sophia Xia: Created first plan and todolist
+
+05-31-2018---------------------------------------------------------------------
+Sophia Xia: created a new plan
+
+
+06-01-2018---------------------------------------------------------------------
+Sophia Xia: proposed a minor design change(Event, Task, Routine);
+       Successfully converted String to LocalTime and LocalDateTime;
+       Updated devlog todolist
+
+06-02-2018---------------------------------------------------------------------
+
+
+06-03-2018---------------------------------------------------------------------
+
+
+06-04-2018---------------------------------------------------------------------
+
+
+06-05-2018---------------------------------------------------------------------
+
+
+06-06-2018---------------------------------------------------------------------
+
+
+06-07-2018---------------------------------------------------------------------

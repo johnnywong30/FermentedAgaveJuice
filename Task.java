@@ -20,17 +20,26 @@ import java.util.Date;
 import java.time.LocalTime;
 
 public class Task{
-    // INSTANCE VARIABLES
+    
+    // INSTANCE VARIABLES ------------------------------------------------------
+
     private String _description;
     private LocalTime _time;
     
-    // CONSTRUCTOR
+    // CONSTRUCTORS ------------------------------------------------------
+
+    public Task(){
+	_description = "";
+	_time = null;
+    }
+    
     public Task(String task, String time){
 	_description = task;
 	_time = strToTime(time);
     }
-    // METHODS
     
+    // METHODS ------------------------------------------------------
+
     public String getDescription(){
 	return _description;
     }
@@ -45,14 +54,14 @@ public class Task{
 	return oldDescription;
     }
 
-    public LocalTime setTime(LocalTime newTime){
+    public LocalTime setTime(String newTime){
 	LocalTime oldTime = _time;
-	_time = newTime;
+	_time = strToTime(newTime);
 	return oldTime;
     }
     
     
-    // HELPER METHODS
+    // HELPER METHODS ------------------------------------------------------
 
     //Converts a String to Local Time
     //User input in format "hh:mm"
@@ -63,4 +72,23 @@ public class Task{
 	return t;
     }
 
+    //Converts a String to Local Date Time
+    //User input in format "yyyy-mm-ddThh:mm:ss"
+    private LocalDateTime strToDateTime(String newTime){
+	LocalDateTime dT = LocalDateTime.parse(newTime);
+	return t;
+    }
+
+    /* MAIN METHOD
+    public static void main(String[] args){
+    	Task Physics = new Task("Make up Labs", "09:00");
+	System.out.println(Physics.getDescription());
+	System.out.println(Physics.getTime());
+	System.out.println(Physics.setDescription("Make up Labs Cries T^T"));
+	System.out.println(Physics.setTime("12:00"));
+	System.out.println(Physics.getDescription());
+	System.out.println(Physics.getTime());
+	System.out.println(Physics.strToTime("12:00"));
+    }
+    */
 }

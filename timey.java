@@ -2,6 +2,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.Scanner;
+
 
 public class timey{
     //	LocalTime currentTime = LocalTime.now();
@@ -25,7 +27,17 @@ public class timey{
 		System.out.println(wow);
 		*/
 
-		LocalTime pew = LocalTime.of(17,59,15);
+		//stolen from some Q&A Forum and editedx
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.println("Enter a number: ");
+		int a = reader.nextInt();
+		int b = reader.nextInt();
+		int c = reader.nextInt();
+		reader.close();
+		//edited stolen stuff
+		
+		LocalTime pew = LocalTime.of(a,b,c);
+		
 		while( currentTime.isBefore(pew)){
 		    currentTime = LocalTime.now();
 		}

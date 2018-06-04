@@ -30,9 +30,9 @@ public class timey{
 		//stolen from some Q&A Forum and editedx
 		Scanner reader = new Scanner(System.in);  // Reading from System.in
 		System.out.println("Enter a number: ");
-		int a = reader.nextInt();
-		int b = reader.nextInt();
-		int c = reader.nextInt();
+		int a = reader.nextInt();//HOURS, MILITARY TIME/24 HOUR CLOCK
+		int b = reader.nextInt();//MINUTES
+		int c = reader.nextInt();//SECONDS, WILL BE REMOVED EVENTUALLY
 		reader.close();
 		//edited stolen stuff
 		

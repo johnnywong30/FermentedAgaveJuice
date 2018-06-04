@@ -31,8 +31,23 @@ public class timey{
 		Scanner reader = new Scanner(System.in);  // Reading from System.in
 		System.out.println("Enter a number: ");
 		int a = reader.nextInt();//HOURS, MILITARY TIME/24 HOUR CLOCK
+		while(a < LocalTime.now().getHour() || a > 24){
+		    System.out.println("nope");
+		    a = reader.nextInt();
+		}
+		
 		int b = reader.nextInt();//MINUTES
+		while(b > 60){
+		       System.out.println("nope");
+		     b = reader.nextInt();
+		}
+			
 		int c = reader.nextInt();//SECONDS, WILL BE REMOVED EVENTUALLY
+		while(c > 60){
+		       System.out.println("nope");
+		    c = reader.nextInt();
+		}
+		System.out.println("wait");	
 		reader.close();
 		//edited stolen stuff
 		

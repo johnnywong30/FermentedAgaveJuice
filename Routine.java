@@ -19,30 +19,23 @@
 import java.util.Date;
 import java.time.LocalDateTime;
 
-public class Task{
+public class Routine{
     
     // INSTANCE VARIABLES ------------------------------------------------------
 
-    private String _description;
     private LocalDateTime _time;
     
     // CONSTRUCTORS ------------------------------------------------------
 
-    public Task(){
-	_description = "";
+    public Routine(){
 	_time = null;
     }
     
-    public Task(String task, String time){
-	_description = task;
+    public Routine(String task, String time){
 	_time = strToTime(time);
     }
     
     // METHODS ------------------------------------------------------
-
-    public String getDescription(){
-	return _description;
-    }
     
     public LocalDateTime getTime(){
 	return _time;
@@ -72,14 +65,14 @@ public class Task{
 
     //MAIN METHOD
     public static void main(String[] args){
-    	Task Physics = new Task("Make up Labs", "2018-06-05T09:00:00");
-	System.out.println(Physics.getDescription());
-	System.out.println(Physics.getTime());
-	System.out.println(Physics.setDescription("Make up Labs Cries T^T"));
-	System.out.println(Physics.setTime("2018-06-05T12:00:00"));
-	System.out.println(Physics.getDescription());
-	System.out.println(Physics.getTime());
-	System.out.println(Physics.strToTime("2018-06-05T12:00:00"));
+    	Routine Work = new Routine("Make up Labs", "2018-06-05T09:00:00");
+	System.out.println(Work.getDescription());
+	System.out.println(Work.getTime());
+	System.out.println(Work.setDescription("Make up Labs Cries T^T"));
+	System.out.println(Work.setTime("2018-06-05T12:00:00"));
+	System.out.println(Work.getDescription());
+	System.out.println(Work.getTime());
+	System.out.println(Work.strToTime("2018-06-05T12:00:00"));
     }
     
 }

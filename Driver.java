@@ -10,5 +10,13 @@ public class Driver{
     
     //Main Method
     public static void main(String[] args){
+	//Does user have schedule? Check the CSV
+	
+	
+	//Yes then open schedule
+	//No then make schedule
+
+	//What would user like to do?
+	// exit, view, addstuff, check friend
     }
 }

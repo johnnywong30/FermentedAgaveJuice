@@ -7,6 +7,7 @@ APCS2 pd1
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Event{
      // INSTANCE VARIABLES
@@ -40,7 +41,9 @@ public class Event{
           return oldTime;
      }
      public String toString(){
-          String ret = _time + " -- " + _description;
+          String ret = "";
+          ret +=  _time;
+          ret += "; " + _description;
           return ret;
      }
 

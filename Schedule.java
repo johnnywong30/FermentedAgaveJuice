@@ -8,31 +8,36 @@
  import java.time.LocalDate;
  import java.time.LocalTime;
  import java.time.LocalDateTime;
-
+ import java.time.format.DateTimeFormatter;
  public class Schedule{
       // INSTANCE VARIABLES
+      private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
       private String _name;
       private LinkedList<Event> _events;
       // private Habit _habits;
       // private History _history;
 
-      // CONSTRUCTOR
+      // CONSTRUCTORS
       public Schedule(String name){
            _name = name;
            _events = new LinkedList<Event>();
            // _habits = new Habits(_name);
            // _history = new History(_name);
       }
+      public Schedule(String name, boolean hasSchedule){
+           _name = name;
+           _events = readFromCSV(name);
+
+      }
 
       // METHODS
       // public void notify(){
       //
       // }
-      /*
 
-     public void changeEventTime(LocalDateTime originalTime, LocalDateTime newTime){
 
-     }
+
+     /*
      public void viewFreeTime(){
 
      }
@@ -49,12 +54,18 @@
 
       public String toString(){
            String ret = "";
+           String HHdd = "";
            ret = getName() + "'s Schedule\n";
+           ret += "0. yyyy-MM-dd HH:mm; NAME\n";
            // Format of Schedule
            // Time -- Event
            for (int i = 0; i < size(); i++){
                 int listOrder = i + 1;
-                ret += listOrder + ". " + _events.get(i).getTime() + " -- " + _events.get(i).getDescription() + "\n";
+                ret += listOrder + ". ";
+                ret += _events.get(i).getTime();
+                HHdd = ret.substring(ret.indexOf("T") + 1);
+                ret = ret.substring(0, ret.indexOf("T")) + " " + HHdd + "; ";
+                ret += _events.get(i).getDescription() + "\n";
            }
            return ret;
       }
@@ -79,19 +90,23 @@
            else{// otherwise
                 // iterate through current _events to find where to place newEvent
                 // based on _time
-                for (int i = 0; i < _events.size(); i++){
+                for (int i = 0; i < size(); i++){
                      // found correct index for newEvent
                      if (_events.get(i).getTime().compareTo(newEvent.getTime()) == -1){
-                          if (_events.get(i + 1) == null){
+                          // count at last Event in _events
+                          if (i == size() - 1){
                                _events.add(newEvent);
                                System.out.println("Your Event has been added at time " + newEvent.getTime());
                                break;
                           }
-                          else if (_events.get(i + 1).getTime().compareTo(newEvent.getTime()) == 1){
-                               _events.add(i + 1, newEvent);
-                               System.out.println("Your Event has been added at time " + newEvent.getTime());
-                               break;
-                          }
+                     }
+                     // newEvent is before current event
+                     else if (_events.get(i).getTime().compareTo(newEvent.getTime()) == 1){
+                          Event currentEvent = _events.get(i);
+                          _events.set(i, newEvent);
+                          _events.add(i + 1, currentEvent);
+                          System.out.println("Your Event has been added at time " + newEvent.getTime());
+                          break;
                      }
                      // there is an Event already scheduled with the same time as newEvent
                      else if (_events.get(i).getTime().compareTo(newEvent.getTime()) == 0){
@@ -106,6 +121,11 @@
            writeToCSV(getName());
            return removedEvent;
       }
+
+      public void changeEventTime(int index, LocalDateTime newTime){
+
+      }
+
       // HELPER METHODS
       public void overwrite(int index, Event newEvent){
            System.out.println("It seems like you have an Event at this time slot already.");
@@ -114,7 +134,7 @@
            while (!response.equals("y") || !response.equals("n")){
                 response = Keyboard.readString();
                 if (response.equals("y")){
-                     _events.add(index, newEvent);
+                     _events.set(index, newEvent);
                      System.out.println("Your Event has been added at time " + newEvent.getTime() + "\n");
                      break;
                 }
@@ -144,6 +164,30 @@
                 }
 
            }
+      }
+      public LinkedList<Event> readFromCSV(String name){
+           CSVRW thisSchedule = new CSVRW("Schedules.csv");
+           LinkedList<Event> retEvents = new LinkedList<Event>();
+           for (int r = 0; r < thisSchedule.size(); r++){
+                if (thisSchedule.get(r, 0).equals(name)){
+                     LocalDateTime time;
+                     String description;
+                     int column = 1;
+                     String current = "";
+                     while (column > 0){
+                          current = thisSchedule.get(r, column);
+                          if (current.length() <= 1){
+                               break;
+                          }
+                          time = LocalDateTime.parse(current.substring(0, current.indexOf(";")), formatter);
+                          description = current.substring(current.indexOf(";") + 1);
+                          retEvents.add(new Event(description, time));
+                          column++;
+                     }
+                     break;
+                }
+           }
+           return retEvents;
       }
 
       public static void main(String[] args){

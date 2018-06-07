@@ -36,9 +36,7 @@ public class Habit{
 		    int ctr = Integer.parseInt(habits.get(r,c));
 		    while(ctr > 0){
 			retStr = retStr + "X";
-
 			ctr --;
-               ctr
 		    }
 		}
 	    }

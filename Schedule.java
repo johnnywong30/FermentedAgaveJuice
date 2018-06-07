@@ -64,8 +64,8 @@
                 ret += listOrder + ". ";
                 ret += _events.get(i).getTime();
                 HHdd = ret.substring(ret.indexOf("T") + 1);
-                ret = ret.substring(0, ret.indexOf("T")) + " " + HHdd + "; ";
-                ret += _events.get(i).getDescription() + "\n";
+                ret = ret.substring(0, ret.indexOf("T")) + " " + HHdd + "|";
+                ret += " " + _events.get(i).getDescription() + "\n";
            }
            return ret;
       }
@@ -179,8 +179,8 @@
                           if (current.length() <= 1){
                                break;
                           }
-                          time = LocalDateTime.parse(current.substring(0, current.indexOf(";")), formatter);
-                          description = current.substring(current.indexOf(";") + 1);
+                          time = LocalDateTime.parse(current.substring(0, current.indexOf("|")), formatter);
+                          description = current.substring(current.indexOf("|") + 1);
                           retEvents.add(new Event(description, time));
                           column++;
                      }

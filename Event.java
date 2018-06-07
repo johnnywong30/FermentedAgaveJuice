@@ -43,7 +43,8 @@ public class Event{
      public String toString(){
           String ret = "";
           ret +=  _time;
-          ret += "; " + _description;
+          ret = ret.substring(0, ret.indexOf("T")) + " "+ ret.substring(ret.indexOf("T") + 1);
+          ret += "|" + _description;
           return ret;
      }
 

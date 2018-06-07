@@ -1,0 +1,65 @@
+/*
+  FermentedAgaveJuice -- Johnny Wong, Sophia Xia, Clarence Cheng
+  Schedule Planner
+  APCS2 pd1
+  Plan
+ */
+
+Preliminary Steps BEFORE Coding ===============================================
+
+	    [X]Establish reliable method of communication
+	    [x]Obtain schedules of each member
+	    [x]Determine when all members are available
+	    [X]Agree on the Components
+	    [X]Figure out how the classes will interact with eachother
+	    [X]Create satisfactory UML diagram
+	    [X]Create a schedule with deadlines for individuals and group work
+
+Components ====================================================================
+	[]Driver.java
+	[]Weekly Schedule Planner
+		 []Day.java
+		 []Event.java
+		 []Task.java
+	[]Sharing Capability
+		  []Friend.java
+	[]Habit Tracker
+		[]Habit.java
+		[]Tracker.java
+	[]History Storage and Access
+		  []History.java
+Order =========================================================================
+	Task.java
+	Event.java
+	Day.java
+	Incorporate methods to tell you when you are free
+	(COLLAB)Driver.java in accordance with Weekly Schedule Planner
+	Debugg and robustify
+
+	Friend.java: this contains the schedule for this friend
+		     which is preserved in a .csv file
+		     Incorporate methods to tell you when you are free
+		     Incorporate methods that show when you and certain
+		     people have similar free time
+------------------------ FINISH ABOVE BY 06-04-18 ------------------------------
+	Habit.java
+	Tracker.java
+	(COLLAB)Driver.java in accordance with HabitTracker
+	Debug and robustify
+------------------------ FINISH ABOVE BY 06-06-18 ------------------------------
+	History.java
+	Adapt Weekly Schedule Planner and Habit Tracker
+	(COLLAB)Driver.java in accordance with History Storage and Access
+	Debug and robustify
+
+	(COLLAB)Fast forward methods for demo day
+
+	Make sure the display is nice
+	(COLLAB)Make sure the User Interface is simple and easy to use
+	Set loose project and test it out on unsuspecting humans
+
+	Once all tasks above are completed move onto the stretch
+------------------------ FINISH ABOVE BY 06-06-18 ------------------------------
+Stretch =======================================================================
+	Popup notification outside of terminal for alerts/etc
+------------------------ FINISH ABOVE BY 06-07-18 ------------------------------

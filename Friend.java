@@ -16,8 +16,14 @@ public class Friend{
      // CONSTRUCTOR
      public Friend(String name){
           _name = name;
-          _schedule = new Schedule();
+          _schedule = new Schedule(name);
      }
+
+     public Friend(String name, boolean hasSchedule){
+          _name = name;
+          _schedule = new Schedule(_name, true);
+     }
+
      // METHODS
      public String getName(){
           return _name;
@@ -28,18 +34,18 @@ public class Friend{
      public void addEvent(Event newEvent){
           _schedule.addEvent(newEvent);
      }
-     public Event removeEvent(Time timeOfEvent){
-          return _schedule.removeEvent(timeOfEvent);
+     public Event removeEvent(int index){
+          return _schedule.removeEvent(index);
      }
-     public void changeEventTime(Time originalTime, Time newTime){
-
-     }
-     public void viewFreeTime(){
-
-     }
-     public Time getFreeTime(){
-
-     }
+     // public void changeEventTime(LocalDateTime originalTime, LocalDateTime newTime){
+     //
+     // }
+     // public void viewFreeTime(){
+     //
+     // }
+     // public LocalDateTime getFreeTime(){
+     //
+     // }
 
      // HELPER METHODS
 }

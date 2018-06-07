@@ -182,7 +182,7 @@ public class CSVRW {
 	}
 	ArrayList<String> toAdd = new ArrayList<String>();
 	for (int c = 0; c < _fileContents.get(0).size(); c++)
-	    toAdd.add(null);
+	    toAdd.add("0");
 	_fileContents.add(index, toAdd);
 	return index;
     }//end arrRow(int, int)

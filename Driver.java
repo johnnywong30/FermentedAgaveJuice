@@ -14,6 +14,7 @@ public class Driver{
      // INSTANCE VARIABLES
      private static String response;
      private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+     private static Schedule userSchedule;
 
      // METHODS
      public static Schedule initialCheck(){
@@ -75,7 +76,7 @@ public class Driver{
                     removeFromSchedule(yourSchedule);
                }
                else if (response.equals("4")){
-
+                    viewFriend();
                }
                else if (response.equals("5")){
                     System.exit(0);
@@ -85,18 +86,51 @@ public class Driver{
                }
           }
      }
-     public static void viewSchedule(Schedule yourSchedule){
-          System.out.print("\033[H\033[2J");
-          System.out.flush();
-          System.out.println(yourSchedule);
-          decisions(yourSchedule);
+     public static void decisions(Schedule yourSchedule, Schedule friendSchedule){
+          response = "";
+          System.out.println("What would you like to do?");
+          System.out.println("1. View " + friendSchedule.getName() + "'s Schedule.");
+          System.out.println("2. Add to " + friendSchedule.getName() + "'s Schedule.");
+          System.out.println("3. Remove from " + friendSchedule.getName() + "'s Schedule.");
+          System.out.println("4. View another Friend's Schedule.");
+          System.out.println("5. Back to your Schedule.");
+          while (!response.equals("1") || !response.equals("2") || !response.equals("3") || !response.equals("4")){
+               response = Keyboard.readString();
+               if (response.equals("1")){
+                    viewSchedule(friendSchedule);
+               }
+               else if (response.equals("2")){
+                    addToSchedule(friendSchedule);
+               }
+               else if (response.equals("3")){
+                    removeFromSchedule(friendSchedule);
+               }
+               else if (response.equals("4")){
+                    viewFriend();
+               }
+               else if (response.equals("5")){
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println(userSchedule);
+                    decisions(userSchedule);
+               }
+               else{
+                    System.out.println("Please select decision 1, 2, 3, 4, or 5.");
+               }
+          }
      }
-     public static void addToSchedule(Schedule yourSchedule){
+     public static void viewSchedule(Schedule inputSchedule){
           System.out.print("\033[H\033[2J");
           System.out.flush();
-          System.out.println("Your current Schedule is as follows:");
-          System.out.println(yourSchedule);
-          System.out.print("Please input the name of your Event: ");
+          System.out.println(inputSchedule);
+          decisions(userSchedule, inputSchedule);
+     }
+     public static void addToSchedule(Schedule inputSchedule){
+          System.out.print("\033[H\033[2J");
+          System.out.flush();
+          System.out.println("Current Schedule is as follows:");
+          System.out.println(inputSchedule);
+          System.out.print("Please input the name of Event: ");
           String event = Keyboard.readString();
           System.out.println("Please input the time this Event will take place in this format: ");
 
@@ -116,26 +150,26 @@ public class Driver{
           LocalDateTime eventTime = LocalDateTime.parse(time, formatter);
           Event addedEvent = new Event(event, eventTime);
           // System.out.println(addedEvent);
-          yourSchedule.addEvent(addedEvent);
+          inputSchedule.addEvent(addedEvent);
           // back to home screen
           System.out.print("\033[H\033[2J");
           System.out.flush();
-          System.out.println(yourSchedule);
-          decisions(yourSchedule);
+          System.out.println(inputSchedule);
+          decisions(userSchedule, inputSchedule);
 
      }
-     public static void removeFromSchedule(Schedule yourSchedule){
+     public static void removeFromSchedule(Schedule inputSchedule){
           System.out.print("\033[H\033[2J");
           System.out.flush();
-          System.out.println("Your current Schedule is as follows:");
-          System.out.println(yourSchedule);
-          if (yourSchedule.size() > 0){
+          System.out.println("Current Schedule is as follows:");
+          System.out.println(inputSchedule);
+          if (inputSchedule.size() > 0){
                System.out.println("Which Event would you like to remove?\nEnter the position of the Event you'd like to remove in the above list.");
                int num = 0;
                while (num == 0){
                     num = Keyboard.readInt();
-                    if (num > 0 && num <= yourSchedule.size()){
-                         yourSchedule.removeEvent(num);
+                    if (num > 0 && num <= inputSchedule.size()){
+                         inputSchedule.removeEvent(num);
                     }
                     else{
                          num = 0;
@@ -144,13 +178,61 @@ public class Driver{
                }
           }
           else{
-               System.out.println("There are no Events in your Schedule!");
+               System.out.println("There are no Events in Schedule!");
           }
           // back to home screen
           System.out.print("\033[H\033[2J");
           System.out.flush();
-          System.out.println(yourSchedule);
-          decisions(yourSchedule);
+          System.out.println(inputSchedule);
+          decisions(userSchedule, inputSchedule);
+     }
+     public static void viewFriend(){
+          response = "";
+          Friend newFriend;
+          System.out.println("Who's Schedule are you trying to view?");
+          response = Keyboard.readString();
+          CSVRW thisSchedule = new CSVRW("Schedules.csv");
+          for (int r = 0; r < thisSchedule.size(); r++){
+               if (thisSchedule.get(r, 0).equals("0")){
+                    System.out.println("This person's Schedule does not exist. Make one? y/n");
+                    String answer = "";
+                    while (answer.length() == 0){
+                         answer = Keyboard.readString();
+                         if (answer.equals("y")){
+                              newFriend = new Friend(response);
+                              thisSchedule.addRow();
+                              thisSchedule.set(thisSchedule.size() - 1, 0, response);
+                              thisSchedule.write("Schedules.csv");
+                              System.out.println("This is your Friend " + response + "'s Schedule" );
+                              System.out.println(newFriend.getSchedule());
+                              System.out.print("\033[H\033[2J");
+                              System.out.flush();
+                              System.out.println(newFriend.getSchedule());
+                              decisions(userSchedule, newFriend.getSchedule());
+                              break;
+                         }
+                         else if (answer.equals("n")){
+                              System.out.println("No new Schedule has been created for " + response + ".");
+                              break;
+                         }
+                         else{
+                              answer = "";
+                              System.out.println("Input is invalid. Try again.");
+                         }
+                    }
+               }
+               else if (thisSchedule.get(r, 0).equals(response)){
+                    newFriend = new Friend(response, true);
+                    System.out.println("This is your Friend " + response + "'s Schedule" );
+                    System.out.println(newFriend.getSchedule());
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println(newFriend.getSchedule());
+                    decisions(userSchedule, newFriend.getSchedule());
+
+               }
+          }
+
      }
      public static boolean isThisDateValid(String dateToValidate){
           if (dateToValidate == null){
@@ -165,8 +247,8 @@ public class Driver{
 
      // MAIN METHOD
      public static void main(String[] args){
-          Schedule yourSchedule = initialCheck();
-          decisions(yourSchedule);
+          userSchedule = initialCheck();
+          decisions(userSchedule);
           // Yes then open schedule
           // No then make schedule
 

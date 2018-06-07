@@ -11,14 +11,9 @@
   Schedule Planner
   APCS2 pd1
 */
-<<<<<<< HEAD
 
 import jutils.CSVRW;
-=======
 import jutils.*;
-public class Habit{
->>>>>>> 163ae97a84fb9c87ec2cdf2c8be3e9078e15fb66
-
 public class Habit{
 
     //Methods
@@ -41,25 +36,21 @@ public class Habit{
 		    int ctr = Integer.parseInt(habits.get(r,c));
 		    while(ctr > 0){
 			retStr = retStr + "X";
-<<<<<<< HEAD
+
 			ctr --;
-=======
                ctr
->>>>>>> 163ae97a84fb9c87ec2cdf2c8be3e9078e15fb66
 		    }
 		}
 	    }
 	    retStr += "\n";
 	}
-<<<<<<< HEAD
+
 	retStr += "\n===================================================================";
 	return retStr;
-=======
 
->>>>>>> 163ae97a84fb9c87ec2cdf2c8be3e9078e15fb66
     }
 
-    
+
     public static void calculateHabits(String keyword){
 	System.out.println(percentageOfHabit(keyword) + "%");
     }

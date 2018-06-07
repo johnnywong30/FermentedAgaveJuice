@@ -56,7 +56,7 @@
            String ret = "";
            String HHdd = "";
            ret = getName() + "'s Schedule\n";
-           ret += "0. yyyy-MM-dd HH:mm; NAME\n";
+           ret += "0. yyyy-MM-dd HH:mm| NAME\n";
            // Format of Schedule
            // Time -- Event
            for (int i = 0; i < size(); i++){
@@ -159,6 +159,7 @@
                           // sets each sequential column to each Event in this Schedule
                           thisSchedule.set(r, c + 1, _events.get(c).toString());
                      }
+                     thisSchedule.set(r, size() + 1, "0");
                      thisSchedule.write("Schedules.csv");
                      break;
                 }

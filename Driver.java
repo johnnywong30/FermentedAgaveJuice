@@ -72,7 +72,7 @@ public class Driver{
                     addToSchedule(yourSchedule);
                }
                else if (response.equals("3")){
-
+                    removeFromSchedule(yourSchedule);
                }
                else if (response.equals("4")){
 
@@ -117,7 +117,40 @@ public class Driver{
           Event addedEvent = new Event(event, eventTime);
           // System.out.println(addedEvent);
           yourSchedule.addEvent(addedEvent);
+          // back to home screen
+          System.out.print("\033[H\033[2J");
+          System.out.flush();
+          System.out.println(yourSchedule);
+          decisions(yourSchedule);
 
+     }
+     public static void removeFromSchedule(Schedule yourSchedule){
+          System.out.print("\033[H\033[2J");
+          System.out.flush();
+          System.out.println("Your current Schedule is as follows:");
+          System.out.println(yourSchedule);
+          if (yourSchedule.size() > 0){
+               System.out.println("Which Event would you like to remove?\nEnter the position of the Event you'd like to remove in the above list.");
+               int num = 0;
+               while (num == 0){
+                    num = Keyboard.readInt();
+                    if (num > 0 && num <= yourSchedule.size()){
+                         yourSchedule.removeEvent(num);
+                    }
+                    else{
+                         num = 0;
+                         System.out.println("Remove a valid Event!");
+                    }
+               }
+          }
+          else{
+               System.out.println("There are no Events in your Schedule!");
+          }
+          // back to home screen
+          System.out.print("\033[H\033[2J");
+          System.out.flush();
+          System.out.println(yourSchedule);
+          decisions(yourSchedule);
      }
      public static boolean isThisDateValid(String dateToValidate){
           if (dateToValidate == null){

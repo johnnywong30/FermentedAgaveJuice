@@ -11,7 +11,7 @@
   Schedule Planner
   APCS2 pd1
 */
-
+import jutils.*;
 public class Habit{
 
     //Instance Variables
@@ -36,12 +36,13 @@ public class Habit{
 		    int ctr = habits.get(r,c);
 		    while(ctr > 0){
 			retStr = retStr + "X";
+               ctr
 		    }
 		}
 	    }
 	    retStr += "\n";
 	}
-	
+
     }
     /*
       public void calculateHabits(){
@@ -60,5 +61,3 @@ public class Habit{
 	viewHabitChart();
     }
 }
-
-

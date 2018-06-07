@@ -11,53 +11,71 @@
   Schedule Planner
   APCS2 pd1
 */
+<<<<<<< HEAD
+
+import jutils.CSVRW;
+=======
 import jutils.*;
 public class Habit{
+>>>>>>> 163ae97a84fb9c87ec2cdf2c8be3e9078e15fb66
 
-    //Instance Variables
-    private String[] _keywords;
-    private double[] _counter;
+public class Habit{
 
     //Methods
+    //viewHabitChart: prints out the information stored in the CSV file
     public static void viewHabitChart(){
 	System.out.println(habitChart());
     }
 
-    //returns string version of the chart
+    //habitChart: helper method for viewHabitChart
+    //returns string version of the informtation in the CSV
     public static String habitChart(){
-	String retStr = "";
+	String retStr = "========================== Habit Tracker ==========================\n\n";
 	CSVRW habits = new CSVRW("Habits.csv");
-	for(int r = 0; r < habits.size() -1; r++){
+	for(int r = 0; r < habits.size(); r++){
 	    for(int c = 0; c < 2; c++){
 		if(c == 0){
 		    retStr = retStr + habits.get(r,c) + "\t";
 		}
 		if(c == 1){
-		    int ctr = habits.get(r,c);
+		    int ctr = Integer.parseInt(habits.get(r,c));
 		    while(ctr > 0){
 			retStr = retStr + "X";
+<<<<<<< HEAD
+			ctr --;
+=======
                ctr
+>>>>>>> 163ae97a84fb9c87ec2cdf2c8be3e9078e15fb66
 		    }
 		}
 	    }
 	    retStr += "\n";
 	}
+<<<<<<< HEAD
+	retStr += "\n===================================================================";
+	return retStr;
+=======
 
+>>>>>>> 163ae97a84fb9c87ec2cdf2c8be3e9078e15fb66
     }
-    /*
-      public void calculateHabits(){
 
-      }
+    
+    public static void calculateHabits(String keyword){
+	System.out.println(percentageOfHabit(keyword) + "%");
+    }
 
-      public double sumArray(){
-
-      }
-
-      public double percentageOfHabit(String keyword){
-
-      }
-    */
-    public static void main(String[] args){
-	viewHabitChart();
+    //percentageOfHabits
+    public static double percentageOfHabit(String keyword){
+	CSVRW habits = new CSVRW("Habits.csv");
+	double percentage = 0.0;
+	double total = 0.0;
+	for(int r = 0; r < habits.size(); r++){
+	    if(habits.get(r, 0).equals(keyword)){
+		percentage = (double)Integer.parseInt(habits.get(r,1));
+	    }
+	    total += (double)Integer.parseInt(habits.get(r,1));
+	}
+	percentage = percentage * 100 / total;
+	return percentage;
     }
 }

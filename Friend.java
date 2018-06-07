@@ -3,7 +3,9 @@ FermentedAgaveJuice -- Johnny Wong, Sophia Xia, Clarence Cheng
 Schedule Planner
 APCS2 pd1
 */
-
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Friend{
      // INSTANCE VARIABLES

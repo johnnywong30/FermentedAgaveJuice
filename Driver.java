@@ -4,6 +4,9 @@
 //05-29-18
 
 import jutils.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Driver{
      // INSTANCE VARIABLES
@@ -18,7 +21,7 @@ public class Driver{
 
           if (Schedules.get(0, 0).equals("Schedule")){
                System.out.println("User does not have a schedule. Make one? y/n");
-               while (!response.equals("y")){
+               while (!response.equals("y") || !response.equals("n")){
                     response = Keyboard.readString();
                     if (response.equals("y")){
                          // Creates slot for User's Schedule
@@ -39,15 +42,40 @@ public class Driver{
           // User does have a Schedule
           else if (Schedules.get(0, 0).equals("User")){
                System.out.println("Welcome to your Schedule!");
-
           }
-
      }
+     public static void decisions(){
+          response = "";
+          System.out.println("What would you like to do?");
+          System.out.println("1. Add to your Schedule.");
+          System.out.println("2. View your Schedule.");
+          System.out.println("3. View a Friend's Schedule.");
+          System.out.println("4. Exit.");
+          while (!response.equals("1") || !response.equals("2") || !response.equals("3") || !response.equals("4")){
+               response = Keyboard.readString();
+               if (response.equals("1")){
+
+               }
+               else if (response.equals("2")){
+
+               }
+               else if (response.equals("3")){
+
+               }
+               else if (response.equals("4")){
+                    System.exit(0);
+               }
+               else{
+                    System.out.println("Please select decision 1, 2, 3, or 4.");
+               }
+          }
+     }
+     
 
      // MAIN METHOD
      public static void main(String[] args){
           initialCheck();
-
+          decisions();
           // Yes then open schedule
           // No then make schedule
 

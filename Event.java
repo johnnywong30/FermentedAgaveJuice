@@ -4,15 +4,17 @@ Schedule Planner
 APCS2 pd1
 */
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Event{
      // INSTANCE VARIABLES
      private String _description;
-     private Time _time;
+     private LocalDateTime _time;
 
      // CONSTRUCTOR
-     public Event(String task, String time){
+     public Event(String task, LocalDateTime time){
           _description = task;
           _time = time;
      }
@@ -22,7 +24,7 @@ public class Event{
           return _description;
      }
 
-     public Time getTime(){
+     public LocalDateTime getTime(){
           return _time;
      }
 
@@ -32,10 +34,14 @@ public class Event{
           return oldDescription;
      }
 
-     public Time setTime(Time newTime){
-          Time oldTime = _time;
+     public LocalDateTime setTime(LocalDateTime newTime){
+          LocalDateTime oldTime = _time;
           _time = newTime;
           return oldTime;
+     }
+     public String toString(){
+          String ret = _time + " -- " + _description;
+          return ret;
      }
 
      // HELPER METHODS

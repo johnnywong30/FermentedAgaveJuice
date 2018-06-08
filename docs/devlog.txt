@@ -8,17 +8,17 @@ Command Line-Based Schedule
 
 ===== TO DO LIST =====
 
-      1. Task.java and Event.java
-      2. Bring Schedule.java and Driver.java in accordance to Task and Event
-      3. Test, Debugg and robustify
-      4. Habit.java
+      1. Task.java and Event.java [DONE]
+      2. Bring Schedule.java and Driver.java in accordance to Event [DONE]
+      3. Test, Debugg and robustify [DONE]
+      4. Habit.java [DONE]
       5. Bring Schedule.java and Driver.java in accordance to Habit
-      6. Test, Debugg and robustify
-      7. History.java
+      6. Test, Debugg and robustify [DONE]
+      7. History.java [DONE]
       8. Bring Schedule.java and Driver.java in accordance to History
-      9. Friend.java
-      10. Bring Schedule.java and Driver.java in accordance to Friend
-      11. Test, Debugg and robustify
+      9. Friend.java [DONE]
+      10. Bring Schedule.java and Driver.java in accordance to Friend [DONE]
+      11. Test, Debugg and robustify [DONE]
 
 ============================================================================================================
 
@@ -41,15 +41,16 @@ UNRESOLVED ISSUES
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Learned how to use the java time package
-Learned how to use CSVs
+Learned how to use the Java Time package
+Learned how to use CSVs to store data
 
 ==========================================
 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"We changed ___ to ___ bc...""
+We decided to not use Task as an Object for Schedule because it seemed to 
+mean the same thing as an Event.
 
 
 ==========================================

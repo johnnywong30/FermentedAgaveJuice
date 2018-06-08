@@ -39,13 +39,13 @@
 
      /*
      public void viewFreeTime(){
-
+     
      }
      public LocalDateTime getFreeTime(LocalDateTime specifiedTime){
-
+     
      }
      public void viewSharedFreeTime(String friendName){
-
+     
      }
      */
       public String getName(){

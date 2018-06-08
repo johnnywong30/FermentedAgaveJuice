@@ -8,17 +8,17 @@ Command Line-Based Schedule
 
 ===== TO DO LIST =====
 
-      1. Task.java and Event.java
-      2. Bring Schedule.java and Driver.java in accordance to Task and Event
-      3. Test, Debugg and robustify
-      4. Habit.java
+      1. Task.java and Event.java [DONE]
+      2. Bring Schedule.java and Driver.java in accordance to Event [DONE]
+      3. Test, Debugg and robustify [DONE]
+      4. Habit.java [DONE]
       5. Bring Schedule.java and Driver.java in accordance to Habit
-      6. Test, Debugg and robustify
-      7. History.java
+      6. Test, Debugg and robustify [DONE]
+      7. History.java [DONE]
       8. Bring Schedule.java and Driver.java in accordance to History
-      9. Friend.java
-      10. Bring Schedule.java and Driver.java in accordance to Friend
-      11. Test, Debugg and robustify
+      9. Friend.java [DONE]
+      10. Bring Schedule.java and Driver.java in accordance to Friend [DONE]
+      11. Test, Debugg and robustify [DONE]
 
 ============================================================================================================
 
@@ -41,14 +41,16 @@ UNRESOLVED ISSUES
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+Learned how to use the Java Time package
+Learned how to use CSVs to store data
 
 ==========================================
 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"We changed ___ to ___ bc...""
+We decided to not use Task as an Object for Schedule because it seemed to 
+mean the same thing as an Event.
 
 
 ==========================================
@@ -75,33 +77,47 @@ LESSONS LEARNED
 
 05-29-2018---------------------------------------------------------------------
 Sophia Xia: Typed up the Proposal and created a UML Diagram for initial smaller version of the Schedule Planner
-
+Johnny Wong: added the devlog and updated the README
+Clarence Cheng: updated the README
 
 05-30-2018---------------------------------------------------------------------
 Sophia Xia: Created first plan and todolist
+Johnny Wong: Worked on Task and Event
+Clarence:
 
 05-31-2018---------------------------------------------------------------------
 Sophia Xia: created a new plan
-
+Johnny Wong: created the flowchart and updated UML diagram
+Clarence Cheng:
 
 06-01-2018---------------------------------------------------------------------
-Sophia Xia: proposed a minor design change(Event, Task, Routine);
-       Successfully converted String to LocalTime and LocalDateTime;
+Sophia Xia: proposed a minor design change(Event, Task, Routine)
+       Successfully converted String to LocalTime and LocalDateTime
        Updated devlog todolist
-
-06-02-2018---------------------------------------------------------------------
-
+Johnny Wong: Borrowed jutils from Joan Chirinos
+       updated proposal
+       added methods to Task.java
+Clarence Cheng: worked on Timey.java to figure out how to use java.time
 
 06-03-2018---------------------------------------------------------------------
-
+Sophia Xia:
+Johnny Wong:
+Clarence Cheng: figured out how time works
 
 06-04-2018---------------------------------------------------------------------
-
-
-06-05-2018---------------------------------------------------------------------
-
+Sophia Xia: Created skeletons for Driver and Routine
+       completed Task
+Johnny Wong: updated the README
+Clarence Cheng: worked out the notification mechanism
 
 06-06-2018---------------------------------------------------------------------
-
+Sophia Xia: created Habit.csv and Habit.java
+       tried to figure out how to use methods from CSVRW
+Johnny Wong: tested CSVRW methods
+       created skeletons for Friend.java and Schedule.java
+Clarence Cheng: 
 
 06-07-2018---------------------------------------------------------------------
+Sophia Xia: finished Habit and History
+Johnny Wong: Created a functional Driver and Schedule
+Clarence Cheng:

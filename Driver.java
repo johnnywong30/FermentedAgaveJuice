@@ -34,6 +34,7 @@ public class Driver{
                          Schedules.set(0, 0, "User");
                          // Write to file
                          Schedules.write("Schedules.csv");
+                         break;
                     }
                     else if (response.equals("n")){
                          System.out.println("User does not want to create a Schedule");
@@ -44,6 +45,8 @@ public class Driver{
                          System.out.println("Please enter y or n");
                     }
                }
+               System.out.print("\033[H\033[2J");
+               System.out.flush();
                System.out.println("Welcome to your Schedule!");
                Schedule yourSchedule = new Schedule("User");
                return yourSchedule;
@@ -123,6 +126,7 @@ public class Driver{
           System.out.print("\033[H\033[2J");
           System.out.flush();
           System.out.println(inputSchedule);
+          notification(inputSchedule);
           decisions(userSchedule, inputSchedule);
      }
      public static void addToSchedule(Schedule inputSchedule){
@@ -192,8 +196,8 @@ public class Driver{
           System.out.println("Who's Schedule are you trying to view?");
           response = Keyboard.readString();
           CSVRW thisSchedule = new CSVRW("Schedules.csv");
-          for (int r = 0; r < thisSchedule.size(); r++){
-               if (thisSchedule.get(r, 0).equals("0")){
+          for (int r = 0; r <= thisSchedule.size(); r++){
+               if (r == thisSchedule.size()){
                     System.out.println("This person's Schedule does not exist. Make one? y/n");
                     String answer = "";
                     while (answer.length() == 0){
@@ -242,6 +246,29 @@ public class Driver{
                return false;
           }
           return true;
+     }
+     public static void notification(Schedule inputSchedule){
+          LocalDateTime currentTime = LocalDateTime.now().withSecond(0).withNano(0);
+          for (Event event: inputSchedule.getEvents()){
+               for (int minutes = 5; minutes > -1; minutes--){
+                    if (event.getTime().minusMinutes(minutes).isEqual(currentTime) && minutes == 0){
+                         String notifier =  event.getDescription() + " has started!";
+                         String red = "\u001B[31m";
+                         String reset = "\u001B[0m";
+                         notifier = red + notifier + reset +"\n";
+                         System.out.println(notifier);
+                         break;
+                    }
+                    else if (event.getTime().minusMinutes(minutes).isEqual(currentTime)){
+                         String notifier = event.getDescription() + " is about to start in " + minutes + " minutes!";
+                         String red = "\u001B[31m";
+                         String reset = "\u001B[0m";
+                         notifier = red + notifier + reset +"\n";
+                         System.out.println(notifier);
+                         break;
+                    }
+               }
+          }
      }
 
 

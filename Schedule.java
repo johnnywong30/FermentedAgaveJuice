@@ -39,17 +39,20 @@
 
      /*
      public void viewFreeTime(){
-     
+
      }
      public LocalDateTime getFreeTime(LocalDateTime specifiedTime){
-     
+
      }
      public void viewSharedFreeTime(String friendName){
-     
+
      }
      */
       public String getName(){
            return _name;
+      }
+      public LinkedList<Event> getEvents(){
+           return _events;
       }
 
       public String toString(){

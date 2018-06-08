@@ -35,6 +35,7 @@ It was a chilly Wednesday morning. Successful distillery turned CS project.
 
    To view a Friend's Schedule, the user inputs the Friend's name. If that Friend does not exist in Schedules.csv, the user is prompted if they would like to create this Friend's Schedule. If that Friend does exist, their Schedule is accessed in the same way as the user's Schedule and the same commands can be done as stated above.
 
+  Regarding Schedule, it's addEvent and removeEvent methods utilize the method writeToCSV(String name) to be able to make changes to the Schedules.csv file. It instantiates a CSVRW (courtesy of friendly Thinker Joan Chirinos of pd8 for allowing us to use his well-made CSVRW class) that accesses Schedules.csv and sets changes pertaining to the Events in <name>'s Schedule.  
 
 ### How to Launch!
 0. $ cd .../FermentedAgaveJuice

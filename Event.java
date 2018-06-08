@@ -14,11 +14,13 @@ public class Event{
      // INSTANCE VARIABLES
      private String _description;
      private LocalDateTime _time;
+         private LocalTime _duration;
 
      // CONSTRUCTOR
-     public Event(String task, LocalDateTime time){
+     public Event(String task, LocalDateTime time, LocalTime duration){
           _description = task;
           _time = time;
+            _duration = duration;
      }
      // METHODS
 
@@ -29,6 +31,10 @@ public class Event{
      public LocalDateTime getTime(){
           return _time;
      }
+     
+       public LocalTime getDuration(){
+	return _duration;
+    }
 
      public String setDescription(String newDescription){
           String oldDescription = _description;
@@ -41,6 +47,13 @@ public class Event{
           _time = newTime;
           return oldTime;
      }
+     
+      public LocalTime setDuration(LocalTime newDuration){
+	LocalTime oldDuration = _duration;
+	_duration = newDuration;
+	return oldDuration;
+    }
+     
      public String toString(){
           String ret = "";
           ret +=  _time;

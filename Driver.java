@@ -76,7 +76,17 @@ public class Driver{
                     addToSchedule(yourSchedule);
                }
                else if (response.equals("3")){
-                    removeFromSchedule(yourSchedule);
+                    if (yourSchedule.size() > 0){
+                         removeFromSchedule(yourSchedule);
+                    }
+                    else{
+                         System.out.println("There are no Events to remove!");
+                         try {
+                              Thread.sleep(1000);                 //5000 milliseconds is five second.
+                         } catch(InterruptedException ex) {
+                              Thread.currentThread().interrupt();
+                         }
+                    }
                }
                else if (response.equals("4")){
                     viewFriend();
@@ -183,6 +193,7 @@ public class Driver{
           }
           else{
                System.out.println("There are no Events in Schedule!");
+
           }
           // back to home screen
           System.out.print("\033[H\033[2J");
